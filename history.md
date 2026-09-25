@@ -226,3 +226,9 @@ GitHub管理へ切り替えるため、`localhost-start.bat`、`localhost-stop.b
 既存リポジトリも確認した。`yr-develop.github.io` はPublicだが共同編集者0人で、他者は閲覧できても直接編集できない。`quank` はPrivateかつ共同編集者0人で、他者は閲覧・編集ともできない。
 
 新規リポジトリのPages設定では「Upgrade or make this repository public to enable Pages」と表示され、現在のプランではPrivateのままGitHub Pagesを有効化できないことを確認した。サイトを公開するにはリポジトリをPublicへ変更する必要があり、その場合はGitHub上のソースも閲覧可能になる。公開されたHTML・CSS・JavaScriptはブラウザへ配信されるため、Pagesの方式にかかわらず完全な秘匿はできない。
+
+### 17. GitHub Pages公開
+
+利用者の了承後、`yr-develop/pocket-playroom` をPublicへ変更した。共同編集者は追加していないため、第三者はソースの閲覧・フォーク・変更提案はできるが、元リポジトリへ直接pushしたり内容を削除したりはできない。
+
+GitHub Pagesの公開元を `main` ブランチの `/ (root)` に設定した。初回の `pages-build-deployment` が成功し、`https://yr-develop.github.io/pocket-playroom/` でロビーが表示されることを確認した。公開サイト上で11ゲームの一覧、共通コントローラー、`games/old-maid/` の画面とJOKER表示まで確認した。
