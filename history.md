@@ -232,3 +232,11 @@ GitHub管理へ切り替えるため、`localhost-start.bat`、`localhost-stop.b
 利用者の了承後、`yr-develop/pocket-playroom` をPublicへ変更した。共同編集者は追加していないため、第三者はソースの閲覧・フォーク・変更提案はできるが、元リポジトリへ直接pushしたり内容を削除したりはできない。
 
 GitHub Pagesの公開元を `main` ブランチの `/ (root)` に設定した。初回の `pages-build-deployment` が成功し、`https://yr-develop.github.io/pocket-playroom/` でロビーが表示されることを確認した。公開サイト上で11ゲームの一覧、共通コントローラー、`games/old-maid/` の画面とJOKER表示まで確認した。
+
+### 18. ローカル優先の開発手順とスマホ操作改善
+
+以降の開発手順を「ローカルで実装・テスト、コミット、GitHubへpush、Pages反映確認」の順に統一した。未確認の変更を直接公開せず、`main` と公開サイトの状態を揃える。
+
+スマートフォンでは430×800の筐体全体が縮小されるうえ、従来は十字キー70px、A/Bボタン44pxへ一律に小型化していたため、実際のタッチ領域が小さくなっていた。タッチ端末または600px以下の画面では、十字キーを100px、A/Bを64px、SELECT・STARTを36px以上へ拡大し、下部操作領域も132pxへ広げた。
+
+筐体内へ `user-select: none` と `-webkit-touch-callout: none` を設定し、長押し時の文字選択やiOS系タッチメニューの誤表示を抑止した。将来フォームを追加しても入力を妨げないよう、`input`、`textarea`、編集可能要素では文字選択を明示的に戻している。

@@ -81,6 +81,8 @@ node scripts/build.mjs
 ## GitHubでの管理
 
 - リポジトリはGitHub Pages配信用にPublicとし、共同編集者を追加しないことで第三者の直接編集を防ぐ
+- 開発はローカルで実装・テストし、確認後にコミットして `main` へpushする
+- `main` へのpush後はGitHub Pagesのデプロイ成功と公開URLの表示を確認する
 - `main` を正本とし、公開前に `node scripts/build.mjs` とJavaScript構文確認を行う
 - GitHub Pagesは `main` ブランチのルートから公開する
 - パスワード、トークン、個人情報などの秘密情報はHTML・JavaScript・コミットへ含めない
