@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>マインスイーパー | POCKET PLAYROOM</title>
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="game.css">
+  <script src="../../assets/js/frame.js"></script>
+  <script src="../../assets/js/soundboard.js" defer></script>
+  <script src="../../assets/js/controls.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="console">
+    <div class="console__topbar">
+      <a class="back-link" href="../../">← LOBBY</a><span class="speaker-slots"></span>
+      <button class="text-button" type="button" data-sound-toggle>♪ SOUND ON</button>
+    </div>
+    <section class="screen-wrap">
+      <div class="screen mine-screen">
+        <header><div><p class="eyebrow">CARTRIDGE 08</p><h1>マインスイーパー</h1></div><button id="difficulty" type="button">9×9</button></header>
+        <div class="mine-hud"><span>MINES <b id="mines">10</b></span><span>TIME <b id="time">000</b></span><span id="mode-label">OPEN</span></div>
+        <div id="board" class="mine-board" role="grid"></div>
+        <p id="status">マスをタップ、または十字＋Aで開こう</p>
+      </div>
+    </section>
+    <div class="console__controls">
+      <div class="dpad" role="group" aria-label="十字キー">
+        <button class="dpad__key dpad__key--up" type="button" data-control="up" aria-label="上"></button>
+        <button class="dpad__key dpad__key--right" type="button" data-control="right" aria-label="右"></button>
+        <button class="dpad__key dpad__key--down" type="button" data-control="down" aria-label="下"></button>
+        <button class="dpad__key dpad__key--left" type="button" data-control="left" aria-label="左"></button>
+        <span class="dpad__center"></span>
+      </div>
+      <div class="control-meta"><div class="system-buttons"><button class="system-button" type="button" data-control="select">MODE</button><button class="system-button" type="button" data-control="start" data-hold-reset>NEW</button></div><span>SELECT: OPEN / FLAG</span></div>
+      <div class="ab-buttons"><button class="ab-button" type="button" data-control="b"><span>B</span><small>FLAG</small></button><button class="ab-button" type="button" data-control="a"><span>A</span><small>OPEN</small></button></div>
+    </div>
+  </main>
+</body>
+</html>
+

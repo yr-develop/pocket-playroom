@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#252a34">
+  <meta name="description" content="手軽なブラウザゲームを選んですぐ遊べる、ポケットサイズのゲームロビー。">
+  <title>POCKET PLAYROOM</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23252a34'/%3E%3Crect x='10' y='12' width='44' height='32' rx='4' fill='%23c6df92'/%3E%3Cpath d='M20 50h12M26 44v12M45 47v2M50 52v2' stroke='%23f4cc5d' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/lobby.css">
+  <script src="assets/js/frame.js"></script>
+  <script src="assets/js/soundboard.js" defer></script>
+  <script src="assets/js/controls.js" defer></script>
+  <script src="assets/js/games.js" defer></script>
+  <script src="assets/js/lobby.js" defer></script>
+</head>
+<body>
+  <main class="console" aria-labelledby="lobby-title" data-keyboard-controls-always>
+    <div class="console__topbar">
+      <span aria-hidden="true">STEREO</span><span class="speaker-slots" aria-hidden="true"></span>
+      <button class="text-button" type="button" data-sound-toggle aria-pressed="true">♪ SOUND ON</button>
+    </div>
+
+    <section class="screen-wrap">
+      <div class="screen screen--lobby">
+        <header class="lobby-header">
+          <div>
+            <p class="eyebrow">GAME SELECT</p>
+            <h1 id="lobby-title">POCKET<br>PLAYROOM</h1>
+          </div>
+          <div class="battery" aria-label="収録ゲーム数">
+            <span class="battery__cells"><i></i><i></i><i></i></span>
+            <span id="game-count">01 GAME</span>
+          </div>
+        </header>
+
+        <p class="lobby-lead">アイコン/中央カセットをタップ、または十字＋AでPLAY。</p>
+        <a id="game-feature" class="game-feature" href="#" aria-live="polite"></a>
+        <div id="game-grid" class="game-grid" role="listbox" aria-label="ゲーム一覧"></div>
+
+        <footer class="screen-footer">
+          <span><kbd>十字</kbd> SELECT</span>
+          <span><kbd>A</kbd> PLAY</span>
+          <span><kbd>B</kbd> SOUND</span>
+        </footer>
+      </div>
+    </section>
+
+    <div class="console__controls" aria-label="ゲーム機コントローラー">
+      <div class="dpad" role="group" aria-label="十字キー">
+        <button class="dpad__key dpad__key--up" type="button" data-control="up" aria-label="上"></button>
+        <button class="dpad__key dpad__key--right" type="button" data-control="right" aria-label="右"></button>
+        <button class="dpad__key dpad__key--down" type="button" data-control="down" aria-label="下"></button>
+        <button class="dpad__key dpad__key--left" type="button" data-control="left" aria-label="左"></button>
+        <span class="dpad__center" aria-hidden="true"></span>
+      </div>
+      <div class="control-meta">
+        <div class="system-buttons">
+          <button class="system-button" type="button" data-control="select">SELECT</button>
+          <button class="system-button" type="button" data-control="start">START</button>
+        </div>
+        <span id="control-hint">PP-03 / SELECT: SOUND</span>
+      </div>
+      <div class="ab-buttons" role="group" aria-label="A・Bボタン">
+        <button class="ab-button ab-button--b" type="button" data-control="b"><span>B</span><small>SOUND</small></button>
+        <button class="ab-button ab-button--a" type="button" data-control="a"><span>A</span><small>PLAY</small></button>
+      </div>
+    </div>
+  </main>
+
+  <noscript>このロビーで遊ぶにはJavaScriptを有効にしてください。</noscript>
+</body>
+</html>

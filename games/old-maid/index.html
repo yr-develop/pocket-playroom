@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#252a34">
+  <meta name="description" content="CPUと1対1で遊ぶ、超シンプルなババ抜き。">
+  <title>ひとりババ抜き | POCKET PLAYROOM</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23252a34'/%3E%3Crect x='18' y='8' width='28' height='48' rx='4' fill='%23f6edd8'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='30' font-family='serif' fill='%23de5c4c'%3EJ%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="game.css">
+  <script src="../../assets/js/frame.js"></script>
+  <script src="../../assets/js/soundboard.js" defer></script>
+  <script src="../../assets/js/controls.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="console console--game" aria-labelledby="game-title">
+    <div class="console__topbar">
+      <a class="back-link" href="../../">← LOBBY</a>
+      <span class="speaker-slots" aria-hidden="true"></span>
+      <button class="text-button" type="button" data-sound-toggle aria-pressed="true">♪ SOUND ON</button>
+    </div>
+
+    <section class="screen-wrap">
+      <div class="screen game-screen">
+        <header class="game-header">
+          <div>
+            <p class="eyebrow">CARTRIDGE 01</p>
+            <h1 id="game-title">ひとりババ抜き</h1>
+          </div>
+          <button id="rules-button" class="mini-button" type="button" aria-expanded="false" aria-controls="rules-panel">遊び方</button>
+        </header>
+
+        <div id="rules-panel" class="rules-panel" hidden>
+          CPUのカードをタップ、または十字キーで選んでA。同じ数字のペアは自動で捨てます。最後にジョーカーを持っていたほうが負けです。
+        </div>
+
+        <section class="opponent-zone" aria-labelledby="cpu-label">
+          <div class="player-label">
+            <span id="cpu-label">CPU</span>
+            <span id="cpu-count">0枚</span>
+          </div>
+          <div id="cpu-hand" class="hand hand--cpu" aria-label="CPUの手札"></div>
+        </section>
+
+        <div class="table-center" aria-live="polite">
+          <div id="discard-pile" class="discard-pile" aria-label="捨て札"></div>
+          <p id="status-message" class="status-message">カードを配っています…</p>
+        </div>
+
+        <section class="player-zone" aria-labelledby="player-label">
+          <div class="player-label">
+            <span id="player-label">YOU</span>
+            <span id="player-count">0枚</span>
+          </div>
+          <div id="player-hand" class="hand hand--player" aria-label="あなたの手札"></div>
+        </section>
+
+        <div id="result-panel" class="result-panel" hidden>
+          <p id="result-kicker" class="eyebrow">GAME SET</p>
+          <h2 id="result-title">YOU WIN!</h2>
+          <p id="result-copy"></p>
+          <button id="replay-button" class="action-button" type="button">もう一度</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="console__controls game-controls" aria-label="ゲーム機コントローラー">
+      <div class="dpad" role="group" aria-label="十字キー">
+        <button class="dpad__key dpad__key--up" type="button" data-control="up" aria-label="上"></button>
+        <button class="dpad__key dpad__key--right" type="button" data-control="right" aria-label="右"></button>
+        <button class="dpad__key dpad__key--down" type="button" data-control="down" aria-label="下"></button>
+        <button class="dpad__key dpad__key--left" type="button" data-control="left" aria-label="左"></button>
+        <span class="dpad__center" aria-hidden="true"></span>
+      </div>
+      <div class="control-meta">
+        <div class="system-buttons">
+          <button class="system-button" type="button" data-control="select">SOUND</button>
+          <button class="system-button" type="button" data-control="start">RULE</button>
+        </div>
+        <span><i class="led" aria-hidden="true"></i><span id="turn-label">READY</span></span>
+      </div>
+      <div class="ab-buttons" role="group" aria-label="A・Bボタン">
+        <button class="ab-button ab-button--b" type="button" data-control="b"><span>B</span><small>RULE</small></button>
+        <button id="draw-button" class="ab-button ab-button--a" type="button" data-control="a" disabled><span>A</span><small>DRAW</small></button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

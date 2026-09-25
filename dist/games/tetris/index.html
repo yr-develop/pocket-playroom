@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#252a34">
+  <meta name="description" content="NEXTを3つ表示し、HOLDにも対応した落ちものブロックパズル。">
+  <title>テトリス | POCKET PLAYROOM</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23252a34'/%3E%3Cg fill='%23c6df92'%3E%3Cpath d='M12 12h12v12H12zm14 0h12v12H26zm14 0h12v12H40zM26 26h12v12H26zM12 40h12v12H12zm14 0h12v12H26zm14 0h12v12H40z'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="game.css">
+  <script src="../../assets/js/frame.js"></script>
+  <script src="../../assets/js/soundboard.js" defer></script>
+  <script src="../../assets/js/controls.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="console console--blocks" aria-labelledby="game-title">
+    <div class="console__topbar">
+      <a class="back-link" href="../../">← LOBBY</a>
+      <span class="speaker-slots" aria-hidden="true"></span>
+      <button class="text-button" type="button" data-sound-toggle aria-pressed="true">♪ SOUND ON</button>
+    </div>
+
+    <section class="screen-wrap">
+      <div class="screen blocks-screen">
+        <header class="blocks-header">
+          <div><p class="eyebrow">CARTRIDGE 04</p><h1 id="game-title">テトリス</h1></div>
+          <div class="score-box"><span>SCORE</span><strong id="score-count">000000</strong></div>
+        </header>
+
+        <div class="blocks-main">
+          <aside class="piece-panel hold-panel">
+            <h2>HOLD</h2>
+            <div id="hold-piece" class="mini-board" aria-label="ホールド中のブロック"></div>
+            <dl class="stats">
+              <div><dt>LINES</dt><dd id="line-count">000</dd></div>
+              <div><dt>LEVEL</dt><dd id="level-count">01</dd></div>
+            </dl>
+          </aside>
+
+          <div id="block-board" class="block-board" role="img" aria-label="ブロックゲーム盤面"></div>
+
+          <aside class="piece-panel next-panel">
+            <h2>NEXT</h2>
+            <div id="next-list" class="next-list" aria-label="次の3ブロック"></div>
+          </aside>
+        </div>
+        <p id="blocks-status" class="blocks-status" aria-live="polite">十字/A/Bをタップ、または対応キーで操作</p>
+
+        <div id="game-menu" class="game-menu" hidden>
+          <p class="eyebrow" id="menu-kicker">PAUSE</p>
+          <h2 id="menu-title">一時停止</h2>
+          <div id="menu-options" class="menu-options">
+            <button type="button" data-menu-action="continue">コンティニュー（戻る）</button>
+            <button type="button" data-menu-action="quit">終了</button>
+            <button type="button" data-menu-action="reset">リセット</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="console__controls blocks-controls" aria-label="ゲーム機コントローラー">
+      <div class="dpad" role="group" aria-label="十字キー">
+        <button class="dpad__key dpad__key--up" type="button" data-control="up" aria-label="ハードドロップ"></button>
+        <button class="dpad__key dpad__key--right" type="button" data-control="right" aria-label="右へ移動"></button>
+        <button class="dpad__key dpad__key--down" type="button" data-control="down" aria-label="ソフトドロップ"></button>
+        <button class="dpad__key dpad__key--left" type="button" data-control="left" aria-label="左へ移動"></button>
+        <span class="dpad__center" aria-hidden="true"></span>
+      </div>
+      <div class="control-meta">
+        <div class="system-buttons">
+          <button class="system-button" type="button" data-control="select">HOLD</button>
+          <button class="system-button" type="button" data-control="start">MENU</button>
+        </div>
+        <span>SELECT: HOLD / START: MENU</span>
+      </div>
+      <div class="ab-buttons" role="group" aria-label="A・Bボタン">
+        <button class="ab-button ab-button--b" type="button" data-control="b"><span>B</span><small>↶ TURN</small></button>
+        <button class="ab-button ab-button--a" type="button" data-control="a"><span>A</span><small>TURN ↷</small></button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
