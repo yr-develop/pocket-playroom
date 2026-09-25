@@ -218,3 +218,11 @@ python -m http.server 4173
 GitHub管理へ切り替えるため、`localhost-start.bat`、`localhost-stop.bat`、専用Pythonサーバー、起動・終了PowerShell、PIDファイルを削除した。ローカル確認が必要な場合は任意の静的サーバーを都度起動する。
 
 残存確認では11ゲームのソース構成と操作案内を再点検した。ロビー、ポケットランナー、ビートパレード、テトリス、本格ポーカーで不足していた「画面タップ」と「十字・A/B・キーボード」の併記を補った。ランナー、ビートパレード、本格ポーカーの画面内ボタンには `type="button"` と操作グループのアクセシビリティ情報も追加した。
+
+### 16. 新規GitHubリポジトリへの移行
+
+既存リポジトリを流用せず、`yr-develop/pocket-playroom` を新規作成した。リポジトリはPrivate、共同編集者0人の状態で、ローカルの `main` ブランチと接続して初回コミットをpushした。Git Credential ManagerへGitHub認証を保存し、今後は通常の `git push` で更新できる。
+
+既存リポジトリも確認した。`yr-develop.github.io` はPublicだが共同編集者0人で、他者は閲覧できても直接編集できない。`quank` はPrivateかつ共同編集者0人で、他者は閲覧・編集ともできない。
+
+新規リポジトリのPages設定では「Upgrade or make this repository public to enable Pages」と表示され、現在のプランではPrivateのままGitHub Pagesを有効化できないことを確認した。サイトを公開するにはリポジトリをPublicへ変更する必要があり、その場合はGitHub上のソースも閲覧可能になる。公開されたHTML・CSS・JavaScriptはブラウザへ配信されるため、Pagesの方式にかかわらず完全な秘匿はできない。

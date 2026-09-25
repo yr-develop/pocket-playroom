@@ -2,6 +2,8 @@
 
 昔の携帯ゲーム機くらいの手触りを目指した、11本のブラウザゲームを収録するロビーです。
 
+GitHubリポジトリ: `yr-develop/pocket-playroom`（Private）
+
 ## 設計方針
 
 - `index.html` を常にロビーの入口にする
@@ -80,3 +82,5 @@ node scripts/build.mjs
 - `main` を正本とし、公開前に `node scripts/build.mjs` とJavaScript構文確認を行う
 - GitHub Pagesはサイト自体がインターネット公開になるため、公開範囲を了承するまで有効化しない
 - パスワード、トークン、個人情報などの秘密情報はHTML・JavaScript・コミットへ含めない
+
+現在のGitHubプランではPrivateリポジトリからPagesを有効化できないため、Pagesは未設定です。GitHub Pagesを使用する場合は、リポジトリをPublicへ変更してソースも公開するか、Private Pagesへ対応するプランが必要です。
